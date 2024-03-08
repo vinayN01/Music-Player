@@ -15,6 +15,8 @@ var audio = new Audio();
 
 var selectedSong = 0;
 
+
+
 function mainFunction(){
     var list="";  
 arr.forEach(function(e,i){
@@ -33,6 +35,7 @@ audio.src = arr[selectedSong].url;
 poster.style.backgroundImage = `url(${arr[selectedSong].img})`;
 
 }
+
 mainFunction(); 
 allSongs.addEventListener("click",function(ev){
     selectedSong = ev.target.id;
@@ -63,15 +66,28 @@ forward.addEventListener("click",function(){
     if(selectedSong < arr.length-1){
         selectedSong++
         mainFunction();
-        audio.play();    }
+        if(flag == 1){
+
+            audio.play();
+        }else{
+            audio.pause();
+        }
+       }
 
 })
 backward.addEventListener("click",function(){
     if(selectedSong > 0){
         selectedSong--
         mainFunction();
-        audio.play();    }
+        if(flag == 1){
+
+            audio.play();
+        }else{
+            audio.pause();
+        }    }
 })
+
+
 
 
 
